@@ -50,6 +50,7 @@ public class KeywordsDetector {
 
     public static boolean areEquals(String str1, String str2) {
         if(str1.length() != str2.length())  return false;
+        str2 = str2.toLowerCase();
         for(int i = 0; i < str1.length(); i++) {
             if(str1.charAt(i) != str2.charAt(i))  return false;
         }
