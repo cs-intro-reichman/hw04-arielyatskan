@@ -24,7 +24,6 @@ public class KeywordsDetector {
         // Replace this comment with your code
         for(int i = 0; i < sentences.length; i++) {
             String str = sentences[i];
-            str = str.toLowerCase();
             str += ' ';
             boolean check = false;;
             int j = 0;
@@ -50,6 +49,7 @@ public class KeywordsDetector {
 
     public static boolean areEquals(String str1, String str2) {
         if(str1.length() != str2.length())  return false;
+        str1 = str1.toLowerCase();
         str2 = str2.toLowerCase();
         for(int i = 0; i < str1.length(); i++) {
             if(str1.charAt(i) != str2.charAt(i))  return false;
