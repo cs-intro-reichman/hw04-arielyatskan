@@ -43,7 +43,7 @@ public class KeywordsDetector {
                 j++; 
                 word = "";
             }
-            if(check)  System.out.println(str);
+            if(check)  System.out.println(str.substring(0, str.length()-1));
         }
     }
 
