@@ -170,7 +170,7 @@ public class ArrCharOps {
      */
     public static int compareTo(String str1, String str2) {
         // Replace the following statement with your code
-        if(str1 == null || str2 == null)  return -2;
+        if(str1.isEmpty() || str2.isEmpty())  return -2;
         int charInt1, charInt2;
         int shorter = Math.min(str1.length(), str2.length());
         for(int i = 0; i < shorter; i++) {
