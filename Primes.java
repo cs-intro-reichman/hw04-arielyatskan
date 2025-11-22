@@ -7,11 +7,11 @@ public class Primes {
         boolean[] numbers = new boolean[n + 1];
         if(n >= 1)  numbers[1] = false;
         numbers[0] = false;
-        for(int i = 2; i < n; i++) {
+        for(int i = 2; i < n + 1; i++) {
             numbers[i] = true;
         }
         int i = 2;
-        while(i < n+1) {
+        while(i < n + 1) {
             if(numbers[i]) {
                 for(int j = i + 1; j< n + 1; j++){
                     if(j % i == 0)  numbers[j] = false;
