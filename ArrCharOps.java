@@ -37,7 +37,8 @@ public class ArrCharOps {
      */
     public static char charAt(char[] arr, int index) {
         // Replace the following statement with your code
-        return 0;
+        char c = arr[index];
+        return c;
     }
 
     /** If the two arrays have the same value in every index, 
@@ -45,7 +46,11 @@ public class ArrCharOps {
      */
     public static boolean equals(char[] arr1, char[] arr2) {
         // Replace the following statement with your code
-        return false;
+        if(arr1.length != arr2.length)  return false;
+        for(int i = 0; i < arr1.length; i++) {
+            if(arr1[i] != arr2[i])  return false;
+        }
+        return true;
     }
 
     /** Returns the index within the given array of the first occurrence of the given character.
@@ -53,6 +58,9 @@ public class ArrCharOps {
      */
     public static int indexOf(char[] arr, char ch) {
         // Replace the following statement with your code
+        for(int i = 0; i < arr.length; i++) {
+            if(arr[i] == ch)  return i;
+        }
         return -1;
     }
 
@@ -60,6 +68,9 @@ public class ArrCharOps {
      */
     public static int indexOf(char[] arr, char ch, int fromIndex) {
         // Replace the following statement with your code
+        for(int i = fromIndex; i < arr.length; i++) {
+            if(arr[i] == ch)  return i;
+        }
         return -1;
     }
 
@@ -68,6 +79,9 @@ public class ArrCharOps {
      */
     public static int lastIndexOf(char[] arr, char ch) {
         // Replace the following statement with your code
+        for(int i = (arr.length - 1); i >= 0; i--) {
+            if(arr[i] == ch)  return i;
+        }
         return -1;
     }
 
@@ -75,7 +89,21 @@ public class ArrCharOps {
     */
     public static char[] concat(char[] arr1, char[] arr2) {
         // Replace the following statement with your code
-        return null;
+        int n = arr1.length + arr2.length;
+        char[] newArr = new char[n];
+        char temp;
+        int i = 0;
+        while (i < arr1.length) {
+            temp = arr1[i];
+            newArr[i] = temp;
+            i++;
+        }
+        for(int j = 0; j < arr2.length; j++) {
+            temp = arr2[j];
+            newArr[i] = temp;
+            i++;
+        }
+        return newArr;
     }
 
     /** Returns a new array that can be described as a sub-array of this array.
@@ -85,7 +113,16 @@ public class ArrCharOps {
      */     
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
         // Replace the following statement with your code
-        return null;
+        int n = endIndex - beginIndex;
+        char[] newArr = new char[n];
+        int indexFrom = beginIndex;
+        char temp;
+        for(int i = 0; i < n; i++) {
+            temp = arr[indexFrom];
+            newArr[i] = temp;
+            indexFrom++;
+        }
+        return newArr;
     }
 
      /** Returns a single integer that represents the given array. This integer is sometimes 
@@ -97,7 +134,13 @@ public class ArrCharOps {
      */
     public static long hashCode(char[] arr) {
         // Replace the following statement with your code
-        return 0;
+        if(arr.length == 0)  return 0;
+        long sum = 0;
+        for(int i =0; i < arr.length; i++) {
+            double temp = (double)(arr[i]);
+            sum += temp * Math.pow(7, arr.length - (i + 1));
+        }
+        return sum;
     }
 
     /**
@@ -127,6 +170,16 @@ public class ArrCharOps {
      */
     public static int compareTo(String str1, String str2) {
         // Replace the following statement with your code
+        int charInt1, charInt2;
+        int shorter = Math.min(str1.length(), str2.length());
+        for(int i = 0; i < shorter; i++) {
+            charInt1 = (int) str1.charAt(i);
+            charInt2 = (int) str2.charAt(i);
+            if(charInt1 > charInt2)  return 1;
+            if(charInt1 < charInt2)  return -1;
+        }
+        if(str1.length() > str2.length())  return 1;
+        if(str1.length() < str2.length())  return -1;
         return 0;
     }
 }
